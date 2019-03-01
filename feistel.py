@@ -13,7 +13,7 @@ def main(argv):
     l_new = 0
     r_new = 0
     k = 7
-    iterations = 3
+    iterations = 9
 
     plaintext = ''
     parser = argparse.ArgumentParser()
@@ -31,7 +31,7 @@ def main(argv):
         plaintext = file.read()
 
     if len(plaintext) % 2 != 0:
-        plaintext += 'a'
+        plaintext += ' '
 
     l0_string = plaintext[:int(len(plaintext)/2)]
     r0_string = plaintext[int(len(plaintext)/2):]
@@ -62,24 +62,27 @@ def main(argv):
         l_old = l_new
         r_old = r_new
 
-    print("ciphertext")
-    print("l_cipher = ", int.to_bytes(l_new, length=len(l0_string), byteorder='big').decode('utf-8'))
-    print("r_cipher = ", int.to_bytes(r_new, length=len(r0_string), byteorder='big').decode('utf-8'))
-    print("l new:", l_new)
-    print("r new:", r_new)
-    print()
+        print("ciphertext")
+        print("l_cipher = ", int.to_bytes(l_new, length=len(l0_string), byteorder='big').decode('utf-8'))
+        print("r_cipher = ", int.to_bytes(r_new, length=len(r0_string), byteorder='big').decode('utf-8'))
+        print("l new:", l_new)
+        print("r new:", r_new)
+        print()
 
     #decrypt
     for i in range(iterations-1, 0, -1):
         r_new = l_old
         l_new = function(i, k, r_new) ^ r_old
+        l_old = l_new
+        r_old = r_new
 
-    print("decrypted")
-    print("l_decrypted = ", int.to_bytes(l_new, length=len(l0_string), byteorder='big').decode('utf-8'))
-    print("r_decrypted = ", int.to_bytes(r_new, length=len(r0_string), byteorder='big').decode('utf-8'))
-    print("l new:", l_new)
-    print("r new:", r_new)
-    print()
+        print("decrypted")
+        print("l_decrypted = ", int.to_bytes(l_new, length=len(l0_string), byteorder='big').decode('utf-8'))
+        print("r_decrypted = ", int.to_bytes(r_new, length=len(r0_string), byteorder='big').decode('utf-8'))
+        print("l new:", l_new)
+        print("r new:", r_new)
+        print()
+
 if __name__ == "__main__":
     main (sys.argv[1:])
 
