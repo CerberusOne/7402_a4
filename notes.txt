@@ -1,0 +1,57 @@
+TESTING
+========
+
+-basic encryption user input
+-basic decryption user input
+-basic encryption file input
+-basic decryption file input
+
+-check diffusion:
+    -slightly change plaintext input
+        -user input
+        -file input
+    -significantly change plaintext input
+        -user input
+        -file input
+-check confusion
+    -slightly change key
+    -significantly change key
+
+
+
+REPORT
+======
+-diffusion
+    -did a slight change in the plaintext input make a big change in the ciphertext? (before vs after)
+        -do a character distribution analysis before and after (graph them)
+            -descirbe the before and after graphs (not as a critique)
+            -point out any good or bad characteristics of the change (critique it)
+    -is this a good result or bad? why? (restate the characteristics of the graphs)
+        -could we realeastically use this cryptographic protocol?
+    -compare the difference in graphs to changes in other cryptographic techniques: (graph before vs after ea.)
+        -caesar cipher
+        -transpositional cipher
+        -OTP
+        -ver-asdf-cryptographic protocol
+    -how could we improve diffusion?
+        -use modes?
+        -use subkeys?
+        -use a combination of cryptographic techniques?
+            -add caesar?
+            -add transpositional?
+            -add OTP?
+            -add ver-sdflkkj?
+-confusion
+    -did a slight change in the key make a big change in the ciphertext?
+        -do a character distribution analysis before and after
+            -descirbe the before and after graphs (not as a critique)
+            -point out any good or bad characteristics of the change (critique it)
+    -repeat from diffsion
+        -are the results good?
+        -compare to other cryptographic techniques, graph em
+        -how could we improve confusion?
+
+
+-CBC diffusion/confusion
+    -can a cryptoanalyst notice the IV?
+        -do multiple tests and check the first block for repeating patterns
