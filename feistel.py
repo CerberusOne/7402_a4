@@ -1,10 +1,51 @@
 #!/usr/bin/python3.5
+#
+# =====================================================================================
+#
+#       Filename:  otp.py
+#
+#    Description: Build a Feistel network using ECB
+#
+#        Created:  03/04/2019
+#
+#         Author:  Benedict Lo & Aing Ragunathan
+#
+# =====================================================================================
 
 import sys, argparse
+
+#
+# =====================================================================================
+#
+#       Function:  function()
+#
+#     Parameters: i - iterations
+#                 k - key
+#                 length - length of key
+#
+#    Description: complete function
+#
+#        Created:  03/04/2019
+#
+#         Author:  Benedict Lo & Aing Ragunathan
+#
+# =====================================================================================
+
 
 def function(i, k, r, length):
     #print("xoring: ", ((2*i*r)**k) % (10**(length+1)))
     return ((2*i*r)**k) % (10**(length))
+
+#
+# =====================================================================================
+#
+#       Function:  main()
+#
+#        Created:  03/04/2019
+#
+#         Author:  Benedict Lo & Aing Ragunathan
+#
+# =====================================================================================
 
 def main(argv):
     l0 = 0
@@ -95,4 +136,3 @@ def main(argv):
 
 if __name__ == "__main__":
     main (sys.argv[1:])
-
